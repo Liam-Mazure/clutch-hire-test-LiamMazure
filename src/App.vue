@@ -1,8 +1,4 @@
 <template>
-  <nav>
-    <router-link to="/">Home</router-link> |
-    <router-link to="/about">About</router-link>
-  </nav>
   <router-view />
 </template>
 
@@ -11,7 +7,7 @@ html,
 body,
 #app {
   min-height: 100dvh;
-  background-color: #fff;
+  background-color: #f4f2ee;
 }
 
 .fade-enter-active,
