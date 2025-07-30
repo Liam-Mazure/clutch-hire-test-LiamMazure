@@ -20,13 +20,13 @@
         name="last"
       />
 
-      <label class="formLabel" id="compLab" for="company">Company</label>
+      <label class="formLabel" id="emailLab" for="email">Email</label>
       <input
-        v-model="newUser.company"
-        type="text"
+        v-model="newUser.email"
+        type="email"
         class="formInput"
-        id="company"
-        name="company"
+        id="email"
+        name="email"
       />
 
       <label class="formLabel" id="pNumLab" for="phone">Phone Number</label>
@@ -38,13 +38,13 @@
         name="phone"
       />
 
-      <label class="formLabel" id="emailLab" for="email">Email</label>
+      <label class="formLabel" id="compLab" for="company">Company</label>
       <input
-        v-model="newUser.email"
-        type="email"
+        v-model="newUser.company"
+        type="text"
         class="formInput"
-        id="email"
-        name="email"
+        id="company"
+        name="company"
       />
 
       <button type="submit" id="formBtn">Continue</button>
@@ -118,54 +118,40 @@ export default defineComponent({
   position: absolute;
   z-index: 1;
   background-color: #f4f2ee;
-}
-#fNameLab {
-  top: 255.04px;
-  left: 48.83px;
   padding-top: 1.26px;
   padding-right: 6.32px;
   padding-left: 6.32px;
   gap: 6.32px;
+}
+#fNameLab {
+  width: 74.97360229492188px;
+  height: 17.26919937133789px;
+  top: 255.04px;
+  left: 48.83px;
 }
 #lNameLab {
   width: 74.1312026977539px;
   height: 17.26919937133789px;
   top: 326.32px;
   left: 48.83px;
-  padding-top: 1.26px;
-  padding-right: 6.32px;
-  padding-left: 6.32px;
-  gap: 6.32px;
 }
 #compLab {
-  width: 44.64719772338867px;
+  width: 66.54959869384766px;
   height: 17.26919937133789px;
-  top: 397.6px;
+  top: 540.16px;
   left: 48.83px;
-  padding-top: 1.26px;
-  padding-right: 6.32px;
-  padding-left: 6.32px;
-  gap: 6.32px;
 }
 #pNumLab {
   width: 97.71839904785156px;
   height: 17.26919937133789px;
   top: 468.88px;
   left: 48.83px;
-  padding-top: 1.26px;
-  padding-right: 6.32px;
-  padding-left: 6.32px;
-  gap: 6.32px;
 }
 #emailLab {
-  width: 66.54959869384766px;
+  width: 44.64719772338867px;
   height: 17.26919937133789px;
-  top: 540.16px;
+  top: 397.6px;
   left: 48.83px;
-  padding-top: 1.26px;
-  padding-right: 6.32px;
-  padding-left: 6.32px;
-  gap: 6.32px;
 }
 .formInput {
   position: absolute;
@@ -193,7 +179,7 @@ export default defineComponent({
   left: 35.76px;
 }
 #company {
-  top: 405.51px;
+  top: 548.07px;
   left: 35.76px;
 }
 #pNum {
@@ -201,7 +187,7 @@ export default defineComponent({
   left: 35.76px;
 }
 #email {
-  top: 548.07px;
+  top: 405.51px;
   left: 35.76px;
 }
 #formBtn {
