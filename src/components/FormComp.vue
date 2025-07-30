@@ -1,34 +1,95 @@
 <template>
   <div class="formComp">
     <h1 class="formMsg">{{ msg }}</h1>
-    <form class="formBase">
+    <form @submit.prevent="submitForm" class="formBase">
       <label class="formLabel" id="fNameLab" for="fName">First Name</label>
-      <input type="name" class="formInput" id="fName" name="fName" />
+      <input
+        v-model="newUser.first"
+        type="name"
+        class="formInput"
+        id="fName"
+        name="fName"
+      />
 
       <label class="formLabel" id="lNameLab" for="lName">Last Name</label>
-      <input type="name" class="formInput" id="lName" name="lName" />
-
-      <label class="formLabel" id="emailLab" for="email">Email</label>
-      <input type="email" class="formInput" id="email" name="email" />
-
-      <label class="formLabel" id="pNumLab" for="pNum">Phone Number</label>
-      <input type="text" class="formInput" id="pNum" name="pNum" />
+      <input
+        v-model="newUser.last"
+        type="name"
+        class="formInput"
+        id="lName"
+        name="lName"
+      />
 
       <label class="formLabel" id="compLab" for="company">Company</label>
-      <input type="text" class="formInput" id="company" name="company" />
+      <input
+        v-model="newUser.company"
+        type="text"
+        class="formInput"
+        id="company"
+        name="company"
+      />
 
-      <input type="submit" id="formBtn" value="Continue" />
+      <label class="formLabel" id="pNumLab" for="pNum">Phone Number</label>
+      <input
+        v-model="newUser.phone"
+        type="text"
+        class="formInput"
+        id="pNum"
+        name="pNum"
+      />
+
+      <label class="formLabel" id="emailLab" for="email">Email</label>
+      <input
+        v-model="newUser.email"
+        type="email"
+        class="formInput"
+        id="email"
+        name="email"
+      />
+
+      <button type="submit" id="formBtn">Continue</button>
     </form>
   </div>
 </template>
 
 <script lang="ts">
-import { defineComponent } from "vue";
+import { defineComponent, reactive } from "vue";
+import axios from "axios";
+import { useRouter } from "vue-router";
 
 export default defineComponent({
   name: "FormComp",
   props: {
     msg: String,
+  },
+  setup() {
+    const router = useRouter();
+    const newUser = reactive({
+      first: "",
+      last: "",
+      company: "",
+      phone: "",
+      email: "",
+    });
+
+    const submitForm = async () => {
+      try {
+        console.log("Submitting: ", newUser);
+        const response = await axios.post(
+          "http://localhost:3000/api/users",
+          newUser
+        );
+        console.log("Form Submitted success:", response.data);
+        router.push("/thankyou");
+      } catch (error) {
+        console.error("Error in submitting:", error);
+      }
+    };
+
+    return {
+      newUser,
+      submitForm,
+    };
   },
 });
 </script>
@@ -76,7 +137,7 @@ export default defineComponent({
   padding-left: 6.32px;
   gap: 6.32px;
 }
-#emailLab {
+#compLab {
   width: 44.64719772338867px;
   height: 17.26919937133789px;
   top: 397.6px;
@@ -96,7 +157,7 @@ export default defineComponent({
   padding-left: 6.32px;
   gap: 6.32px;
 }
-#compLab {
+#emailLab {
   width: 66.54959869384766px;
   height: 17.26919937133789px;
   top: 540.16px;
@@ -131,7 +192,7 @@ export default defineComponent({
   top: 334.23px;
   left: 35.76px;
 }
-#email {
+#company {
   top: 405.51px;
   left: 35.76px;
 }
@@ -139,7 +200,7 @@ export default defineComponent({
   top: 476.79px;
   left: 35.76px;
 }
-#company {
+#email {
   top: 548.07px;
   left: 35.76px;
 }

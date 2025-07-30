@@ -8,6 +8,23 @@
   </div>
 </template>
 
+<script>
+import { onMounted } from "vue";
+import { useRouter } from "vue-router";
+
+export default {
+  setup() {
+    const router = useRouter();
+
+    onMounted(() => {
+      setTimeout(() => {
+        router.push("/api/lead/53165733-cb98-4923-9cb9-2c126093fc79");
+      }, 5000);
+    });
+  },
+};
+</script>
+
 <style>
 #logo {
   position: absolute;
