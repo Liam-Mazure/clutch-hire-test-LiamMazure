@@ -18,7 +18,7 @@ export default {
 
     onMounted(() => {
       setTimeout(() => {
-        router.push("/api/lead/53165733-cb98-4923-9cb9-2c126093fc79");
+        router.push("/home");
       }, 5000);
     });
   },

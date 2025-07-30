@@ -2,22 +2,22 @@
   <div class="formComp">
     <h1 class="formMsg">{{ msg }}</h1>
     <form @submit.prevent="submitForm" class="formBase">
-      <label class="formLabel" id="fNameLab" for="fName">First Name</label>
+      <label class="formLabel" id="fNameLab" for="first">First Name</label>
       <input
         v-model="newUser.first"
         type="name"
         class="formInput"
         id="fName"
-        name="fName"
+        name="first"
       />
 
-      <label class="formLabel" id="lNameLab" for="lName">Last Name</label>
+      <label class="formLabel" id="lNameLab" for="last">Last Name</label>
       <input
         v-model="newUser.last"
         type="name"
         class="formInput"
         id="lName"
-        name="lName"
+        name="last"
       />
 
       <label class="formLabel" id="compLab" for="company">Company</label>
@@ -29,13 +29,13 @@
         name="company"
       />
 
-      <label class="formLabel" id="pNumLab" for="pNum">Phone Number</label>
+      <label class="formLabel" id="pNumLab" for="phone">Phone Number</label>
       <input
         v-model="newUser.phone"
         type="text"
         class="formInput"
         id="pNum"
-        name="pNum"
+        name="phone"
       />
 
       <label class="formLabel" id="emailLab" for="email">Email</label>
